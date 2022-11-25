@@ -34,12 +34,14 @@ const Home = () => {
 
     const submitMsg = (event: React.SyntheticEvent) => {
         event.preventDefault();
+        if (message === '') return;
         socket.emit('chat', { userName, message });
         setMessage('');
     };
 
     const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
         if (event.key === 'Enter') {
+            if (message === '') return;
             socket.emit('chat', { userName, message });
             setMessage('');
         }

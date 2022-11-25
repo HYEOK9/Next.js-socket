@@ -1,3 +1,7 @@
+import { Server } from 'http';
+import { Http2SecureServer } from 'http2';
+import { Socket } from 'socket.io';
+
 const express = require('express');
 const http = require('http');
 const socketIO = require('socket.io');
@@ -9,9 +13,9 @@ interface Message {
 const PORT = 8080;
 
 class App {
-    app: any;
-    server: any;
-    io: any;
+    app: Express.Application;
+    server: Server;
+    io: Socket;
 
     constructor() {
         this.app = express();
@@ -20,7 +24,7 @@ class App {
     }
 
     connect = () => {
-        this.io.on('connection', (socket: any) => {
+        this.io.on('connection', (socket: Socket) => {
             socket.on('chat', (data: Message) => {
                 console.log(data);
                 this.io.emit('chat', data);
