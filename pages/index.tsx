@@ -8,7 +8,7 @@ interface Message {
 
 const Home = () => {
     const [isConnected, setIsConnected] = useState<boolean>(false);
-    const [socket, setSocket] = useState<any>();
+    const [socket, setSocket] = useState<Socket | null>(null);
     const [userName, setUserName] = useState<string>('');
     const [message, setMessage] = useState<string>('');
     const [msgLst, setMsgLst] = useState<Message[]>([]);
@@ -33,6 +33,7 @@ const Home = () => {
     }, [msgLst]);
 
     const submitMsg = (event: React.SyntheticEvent) => {
+        if (!socket) return;
         event.preventDefault();
         if (message === '') return;
         socket.emit('chat', { userName, message });
@@ -40,6 +41,7 @@ const Home = () => {
     };
 
     const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+        if (!socket) return;
         if (event.key === 'Enter') {
             if (message === '') return;
             socket.emit('chat', { userName, message });
