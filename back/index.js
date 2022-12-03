@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 exports.__esModule = true;
 var express = require('express');
 var http = require('http');
@@ -17,7 +17,7 @@ var App = /** @class */ (function () {
         };
         this.listen = function () {
             _this.server.listen(PORT, function () {
-                console.log("Server is listening on PORT ".concat(PORT, "..."));
+                console.log('Server is listening on PORT '.concat(PORT, '...'));
             });
         };
         this.run = function () {
@@ -29,7 +29,7 @@ var App = /** @class */ (function () {
         this.io = socketIO(this.server, { cors: { origin: '*' } });
     }
     return App;
-}());
+})();
 var app = new App();
 app.run();
-exports["default"] = App;
+exports['default'] = App;

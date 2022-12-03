@@ -1,5 +1,4 @@
 import { Server } from 'http';
-import { Http2SecureServer } from 'http2';
 import { Socket } from 'socket.io';
 
 const express = require('express');
