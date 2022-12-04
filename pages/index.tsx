@@ -79,6 +79,7 @@ const Home = () => {
                             width: '100%',
                             height: '20px',
                             color: '#fff',
+                            marginY: '6px',
                         }}
                     >
                         <div
