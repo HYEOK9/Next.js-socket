@@ -32,4 +32,12 @@ npm run dev -p 3001
 ```
 
 <br>
-4. test
+4. test in
+
+```
+http://localhost:3000
+```
+
+```
+http://localhost:3001
+```
